@@ -1,5 +1,6 @@
 #include "nan.h"
 #include "nan_basic.hpp"
+#include "nan_matrix.hpp"
 
 
 void init_basic(v8::Local<v8::Object> target) {

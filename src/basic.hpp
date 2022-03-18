@@ -61,14 +61,5 @@ double get_max(std::vector<double> provided_vector);
 double get_min(std::vector<double> provided_vector);
 
 
-/**
- * Calculates if provided matrix is square or not.
- *
- * @param provided_matrix Vector of vectors, which represents a matrix.
- * @return true if matrix is square, false if not.
- */
-bool is_matrix_square(std::vector<std::vector<double>> matrix);
-
-
 #endif
 
