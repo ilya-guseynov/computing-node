@@ -4,6 +4,7 @@
       "target_name": "ComputingNode",
       "sources": [
         "./src/main.cpp",
+        "./src/nan_helpers.cpp",
         "./src/nan_basic.cpp",
         "./src/basic.cpp",
         "./src/nan_matrix.cpp",

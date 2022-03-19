@@ -2,6 +2,7 @@
 #include "nan.h"
 #include "convert.hpp"
 #include "matrix.hpp"
+#include "nan_helpers.hpp"
 
 
 /**
@@ -37,6 +38,15 @@ void nan_is_matrix_square(const Nan::FunctionCallbackInfo<v8::Value>& args) {
   }
 
   v8::Local<v8::Array> v8_provided_matrix = v8::Local<v8::Array>::Cast(args[0]);
+
+  if (!is_correct_matrix(v8_provided_matrix)) {
+    isolate -> ThrowException(v8::Exception::TypeError(
+      Nan::New("Provided array is not a correct matrix").ToLocalChecked()
+    ));
+
+    return;
+  }
+
   std::vector<std::vector<double>> provided_matrix =
     convert_v8_matrix_to_vector_matrix(v8_provided_matrix);
 
