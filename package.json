@@ -6,7 +6,12 @@
   "scripts": {
     "configure": "node-gyp configure",
     "build": "node-gyp build",
-    "test": "jest"
+    "test": "jest",
+
+    "ptest:fibonacci": "node ./scripts/perfomance_test_fibonnaci.js",
+    "ptest:isPrime": "node ./scripts/perfomance_test_isPrime.js",
+    "ptest:matrixSum": "node ./scripts/perfomance_test_matrixSum.js",
+    "ptest:sumList": "node ./scripts/perfomance_test_sumList.js"
   },
   "devDependencies": {
     "jest": "^27.5.1",
