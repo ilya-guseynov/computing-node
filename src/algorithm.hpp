@@ -11,5 +11,14 @@
 double fibonacci(double n);
 
 
+/**
+ * Calculates if provided number is prime or not.
+ *
+ * @param n Provided number.
+ * @return true if prime, false if not.
+ */
+bool is_prime(double n);
+
+
 #endif
 
