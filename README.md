@@ -31,8 +31,23 @@ $ sudo n latest
 $ sudo apt-get install gcc g++ make build-essentials
 ```
 
+### Install dependencies and first build
+
 ```shell
 $ npm install
+$ npm run configure
+$ npm run build
+```
+
+## Build on change
+
+```shell
+$ npm run build
+```
+
+## Configure on binding.gyp change
+
+```shell
 $ npm run configure
 $ npm run build
 ```
@@ -42,3 +57,20 @@ $ npm run build
 ```shell
 $ npm test
 ```
+
+## Perfomance tests
+
+```shell
+$ npm run ptest:FUNCTION_NAME
+```
+
+Ptest list:
+
+```shell
+$ npm run ptest:fibonacci
+$ npm run ptest:isPrime
+$ npm run ptest:matrixSum
+$ npm run ptest:sumList
+```
+
+Perfomance tests implementation in `./scripts/perfomance_test_FUNCTION_NAME.js`
