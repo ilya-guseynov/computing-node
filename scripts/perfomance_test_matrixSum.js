@@ -1,3 +1,4 @@
+const { performance } = require('node:perf_hooks')
 const { createMatrix } = require('./_helpers.js')
 const { matrixSum } = require('../index.js')
 
@@ -16,22 +17,32 @@ const pureMatrixSum = (someMatrixA, someMatrixB) => {
 }
 
 const main = () => {
-  const CPP_LABEL = 'Calculate via C++'
-  const JS_LABEL = 'Calculate via JS '
-
-  for (let number = 10; number < 100_000_000; number += 100) {
+  for (let number = 1; number < 100_000_000; number += 100) {
     const someMatrix = createMatrix(number)
 
-    console.time(JS_LABEL)
+    const jsStart = performance.now()
     const jsResult = pureMatrixSum(someMatrix, someMatrix)
-    console.timeEnd(JS_LABEL)
+    const jsEnd = performance.now()
 
-    console.time(CPP_LABEL)
+    const jsTime = jsEnd - jsStart
+
+    const cppStart = performance.now()
     const cppResult = matrixSum(someMatrix, someMatrix)
-    console.timeEnd(CPP_LABEL)
+    const cppEnd = performance.now()
+
+    const cppTime = cppEnd - cppStart
+
+    if (jsTime > cppTime) {
+      const diff = jsTime - cppTime
+
+      console.log(`matrixSum(${number}) = ${cppResult}. C++ is faster by ${diff}ms`)
+    } else {
+      const diff = cppTime - jsTime
+      console.log(`matrixSum(${number}). Node.js is faster by ${diff}ms`)
+    }
 
     if (jsResult.length !== cppResult.length) {
-      console.log(`On vector size ${ number } results are not the same.`)
+      console.log(`On matrix size ${ number } results are not the same.`)
       return
     }
   }
