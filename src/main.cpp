@@ -19,6 +19,14 @@ void init_basic(v8::Local<v8::Object> target) {
       Nan::New<v8::FunctionTemplate>(nan_is_matrix_square)
     ).ToLocalChecked()
   );
+
+  Nan::Set(
+    target,
+    Nan::New("matrixSum").ToLocalChecked(),
+    Nan::GetFunction(
+      Nan::New<v8::FunctionTemplate>(nan_matrix_sum)
+    ).ToLocalChecked()
+  );
 }
 
 

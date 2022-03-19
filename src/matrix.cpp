@@ -34,8 +34,8 @@ std::vector<std::vector<double>> matrix_sum(
   for (unsigned int i = 0; i < matrix_a.size(); i++) {
     std::vector<double> matrix_subarray;
 
-    for (unsigned int j = 0; i < matrix_a[i].size(); i++) {
-      matrix_subarray[j] = matrix_a[i][j] + matrix_b[i][j];
+    for (unsigned int j = 0; j < matrix_a[i].size(); j++) {
+      matrix_subarray.push_back(matrix_a[i][j] + matrix_b[i][j]);
     }
 
     result_matrix.push_back(matrix_subarray);
