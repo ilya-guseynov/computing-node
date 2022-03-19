@@ -28,7 +28,7 @@ $ sudo n latest
 ### Install packages for native addons
 
 ```shell
-$ sudo apt-get install gcc g++ make
+$ sudo apt-get install gcc g++ make build-essentials
 ```
 
 ```shell
