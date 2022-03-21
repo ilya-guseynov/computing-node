@@ -34,8 +34,7 @@ const main = () => {
 
     if (jsTime > cppTime) {
       const diff = jsTime - cppTime
-
-      console.log(`matrixSum(${number}) = ${cppResult}. C++ is faster by ${diff}ms`)
+      console.log(`matrixSum(${number}). C++ is faster by ${diff}ms`)
     } else {
       const diff = cppTime - jsTime
       console.log(`matrixSum(${number}). Node.js is faster by ${diff}ms`)
