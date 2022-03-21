@@ -35,5 +35,21 @@ void nan_fibonacci(const Nan::FunctionCallbackInfo<v8::Value>& args);
 void nan_is_prime(const Nan::FunctionCallbackInfo<v8::Value>& args);
 
 
+/**
+ *
+ * Estimate the value of π by using a Monte Carlo method.
+ * Take `points` samples of random x and y values on a
+ * [0,1][0,1] plane. Calculating the length of the diagonal
+ * tells us whether the point lies inside, or outside a
+ * quarter circle running from 0,1 to 1,0. The ratio of the
+ * number of points inside to outside gives us an
+ * approximation of π/4.
+ *
+ * See https://en.wikipedia.org/wiki/File:Pi_30K.gif
+ * for a visualization of how this works.
+ */
+void nan_estimate_pi_number(const Nan::FunctionCallbackInfo<v8::Value>& args);
+
+
 #endif
 

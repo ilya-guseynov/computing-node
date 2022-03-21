@@ -93,3 +93,72 @@ void nan_is_prime(const Nan::FunctionCallbackInfo<v8::Value>& args) {
   args.GetReturnValue().Set(is_prime(provided_number));
 }
 
+
+inline int __randall(unsigned int *p_seed) {
+#ifdef _WIN32
+  return rand();
+#else
+  return rand_r(p_seed);
+#endif
+}
+
+/**
+ *
+ * Estimate the value of π by using a Monte Carlo method.
+ * Take `points` samples of random x and y values on a
+ * [0,1][0,1] plane. Calculating the length of the diagonal
+ * tells us whether the point lies inside, or outside a
+ * quarter circle running from 0,1 to 1,0. The ratio of the
+ * number of points inside to outside gives us an
+ * approximation of π/4.
+ *
+ * See https://en.wikipedia.org/wiki/File:Pi_30K.gif
+ * for a visualization of how this works.
+ */
+void nan_estimate_pi_number(const Nan::FunctionCallbackInfo<v8::Value>& args) {
+  v8::Isolate* isolate = args.GetIsolate();
+
+  if (args.Length() != 1) {
+    isolate -> ThrowException(v8::Exception::TypeError(
+      Nan::New("Must be provided 1 argument").ToLocalChecked()
+    ));
+
+    return;
+  }
+
+  if (!args[0] -> IsNumber()) {
+    isolate -> ThrowException(v8::Exception::TypeError(
+      Nan::New("Provided argument must be a number").ToLocalChecked()
+    ));
+
+    return;
+  }
+
+  double points = Nan::To<double>(args[0]).FromJust();
+  double i = points;
+  double inside = 0;
+  unsigned int randseed = 1;
+
+#ifdef _WIN32
+  srand(randseed);
+#endif
+
+  unsigned int seed = __randall(&randseed);
+
+#ifdef _WIN32
+  srand(seed);
+#endif
+
+  while (i-- > 0) {
+    double x = __randall(&seed) / static_cast<double>(RAND_MAX);
+    double y = __randall(&seed) / static_cast<double>(RAND_MAX);
+
+    if ((x * x) + (y * y) <= 1)
+      inside++;
+  }
+
+  double result = (inside / points) * 4;
+
+  args.GetReturnValue().Set(result);
+}
+

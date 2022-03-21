@@ -23,6 +23,14 @@ void init_basic(v8::Local<v8::Object> target) {
 
   Nan::Set(
     target,
+    Nan::New("estimatePiNumber").ToLocalChecked(),
+    Nan::GetFunction(
+      Nan::New<v8::FunctionTemplate>(nan_estimate_pi_number)
+    ).ToLocalChecked()
+  );
+
+  Nan::Set(
+    target,
     Nan::New("sumList").ToLocalChecked(),
     Nan::GetFunction(
       Nan::New<v8::FunctionTemplate>(nan_list_sum)
