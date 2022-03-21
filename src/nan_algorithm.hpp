@@ -51,5 +51,8 @@ void nan_is_prime(const Nan::FunctionCallbackInfo<v8::Value>& args);
 void nan_estimate_pi_number(const Nan::FunctionCallbackInfo<v8::Value>& args);
 
 
+void nan_collatz_sequence(const Nan::FunctionCallbackInfo<v8::Value>& args);
+
+
 #endif
 

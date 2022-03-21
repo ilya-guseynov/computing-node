@@ -31,6 +31,14 @@ void init_basic(v8::Local<v8::Object> target) {
 
   Nan::Set(
     target,
+    Nan::New("createCollatzSequence").ToLocalChecked(),
+    Nan::GetFunction(
+      Nan::New<v8::FunctionTemplate>(nan_collatz_sequence)
+    ).ToLocalChecked()
+  );
+
+  Nan::Set(
+    target,
     Nan::New("sumList").ToLocalChecked(),
     Nan::GetFunction(
       Nan::New<v8::FunctionTemplate>(nan_list_sum)

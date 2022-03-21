@@ -1,5 +1,7 @@
+#include <cmath>
 #include "nan.h"
 #include "algorithm.hpp"
+#include "convert.hpp"
 
 
 /**
@@ -160,5 +162,41 @@ void nan_estimate_pi_number(const Nan::FunctionCallbackInfo<v8::Value>& args) {
   double result = (inside / points) * 4;
 
   args.GetReturnValue().Set(result);
+}
+
+
+void nan_collatz_sequence(const Nan::FunctionCallbackInfo<v8::Value>& args) {
+  v8::Isolate* isolate = args.GetIsolate();
+
+  if (args.Length() != 1) {
+    isolate -> ThrowException(v8::Exception::TypeError(
+      Nan::New("Must be provided 1 argument").ToLocalChecked()
+    ));
+
+    return;
+  }
+
+  if (!args[0] -> IsNumber()) {
+    isolate -> ThrowException(v8::Exception::TypeError(
+      Nan::New("Provided argument must be a number").ToLocalChecked()
+    ));
+
+    return;
+  }
+
+  double n = Nan::To<double>(args[0]).FromJust();
+  std::vector<double> collatz_sequence;
+
+  while (n > 1) {
+    collatz_sequence.push_back(n);
+
+    if (std::fmod(n, 2) == 0) {
+      n = n / 2;
+    } else {
+      n = (3 * n) + 1;
+    }
+  }
+
+  args.GetReturnValue().Set(convert_vector_to_v8_array(collatz_sequence));
 }
 
