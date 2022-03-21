@@ -1,7 +1,4 @@
-#include <vector>
 #include "nan.h"
-#include "convert.hpp"
-#include "basic.hpp"
 
 
 /**
@@ -35,12 +32,37 @@ void nan_list_sum(const Nan::FunctionCallbackInfo<v8::Value>& args) {
     return;
   }
 
-  v8::Local<v8::Array> provided_array = v8::Local<v8::Array>::Cast(args[0]);
+  v8::Local<v8::Array> v8_provided_array = v8::Local<v8::Array>::Cast(args[0]);
+  unsigned int array_size = v8_provided_array -> Length();
+  double result = 0;
 
-  std::vector<double> provided_vector = convert_v8_array_to_vector(
-    provided_array
-  );
+  for (unsigned int i = 0; i < array_size; i++) {
+    Nan::MaybeLocal<v8::Value> v8_maybe_array_value =
+      Nan::Get(v8_provided_array, i);
 
-  args.GetReturnValue().Set(calculate_vector_sum(provided_vector));
+    if (!v8_maybe_array_value.IsEmpty()) {
+      isolate -> ThrowException(v8::Exception::TypeError(
+        Nan::New("Provided list must contain only numbers").ToLocalChecked()
+      ));
+
+      return;
+    }
+
+    v8::Local<v8::Value> v8_array_value = v8_maybe_array_value.ToLocalChecked();
+
+    if (!v8_array_value -> IsNumber()) {
+      isolate -> ThrowException(v8::Exception::TypeError(
+        Nan::New("Provided list must contain only numbers").ToLocalChecked()
+      ));
+
+      return;
+    }
+
+    double value = Nan::To<double>(v8_array_value).FromJust();
+
+    result += value;
+  }
+
+  args.GetReturnValue().Set(result);
 }
 
