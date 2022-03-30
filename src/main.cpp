@@ -32,6 +32,14 @@ void init_basic(v8::Local<v8::Object> target) {
 
   Nan::Set(
     target,
+    Nan::New("eulerTotient").ToLocalChecked(),
+    Nan::GetFunction(
+      Nan::New<v8::FunctionTemplate>(nan_euler_totient)
+    ).ToLocalChecked()
+  );
+
+  Nan::Set(
+    target,
     Nan::New("isPrime").ToLocalChecked(),
     Nan::GetFunction(
       Nan::New<v8::FunctionTemplate>(nan_is_prime)

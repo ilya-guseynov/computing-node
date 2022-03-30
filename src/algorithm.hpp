@@ -20,6 +20,9 @@ double fibonacci(double n);
 double catalan(double n);
 
 
+double euler_totient(double n);
+
+
 /**
  * Calculates if provided number is prime or not.
  *

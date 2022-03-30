@@ -37,6 +37,28 @@ double catalan(double n) {
 }
 
 
+int _gcd(int a, int b) {
+  if (a == 0) {
+    return b;
+  }
+
+  return _gcd(b % a, a);
+}
+
+
+double euler_totient(double n) {
+  unsigned int result = 1;
+
+  for (int i = 2; i < n; i++) {
+    if (_gcd(i, n) == 1) {
+          result++;
+    }
+  }
+
+  return result;
+}
+
+
 /**
  * Calculates if provided number is prime or not.
  *

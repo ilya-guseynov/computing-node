@@ -35,6 +35,9 @@ void nan_fibonacci(const Nan::FunctionCallbackInfo<v8::Value>& args);
 void nan_catalan(const Nan::FunctionCallbackInfo<v8::Value>& args);
 
 
+void nan_euler_totient(const Nan::FunctionCallbackInfo<v8::Value>& args);
+
+
 /**
  * Calculates if provided number is prime or not.
  *
