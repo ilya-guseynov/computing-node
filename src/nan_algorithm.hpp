@@ -21,6 +21,21 @@ void nan_fibonacci(const Nan::FunctionCallbackInfo<v8::Value>& args);
 
 
 /**
+ * Calculates nth catalan number.
+ *
+ * At n = args[0] must be a number provided as Javascript argument.
+ *
+ * Throw an error if at args[0] not a number, nothing
+ * or there is more that one argument (args[1] exists)
+ *
+ * As return value returns number, which is nth catalan number.
+ *
+ * @param args Standart Nan function arguments list.
+ */
+void nan_catalan(const Nan::FunctionCallbackInfo<v8::Value>& args);
+
+
+/**
  * Calculates if provided number is prime or not.
  *
  * At n = args[0] must be a numbers provided as Javascript argument.

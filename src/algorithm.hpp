@@ -12,6 +12,15 @@ double fibonacci(double n);
 
 
 /**
+ * Calculates nth catalan number.
+ *
+ * @param n Order number of catalan number.
+ * @return Catalan number.
+ */
+double catalan(double n);
+
+
+/**
  * Calculates if provided number is prime or not.
  *
  * @param n Provided number.

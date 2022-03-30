@@ -24,6 +24,14 @@ void init_basic(v8::Local<v8::Object> target) {
 
   Nan::Set(
     target,
+    Nan::New("catalan").ToLocalChecked(),
+    Nan::GetFunction(
+      Nan::New<v8::FunctionTemplate>(nan_catalan)
+    ).ToLocalChecked()
+  );
+
+  Nan::Set(
+    target,
     Nan::New("isPrime").ToLocalChecked(),
     Nan::GetFunction(
       Nan::New<v8::FunctionTemplate>(nan_is_prime)

@@ -9,6 +9,7 @@
     "test": "jest",
 
     "ptest:fibonacci": "node ./scripts/perfomance_test_fibonnaci.js",
+    "ptest:catalan": "node ./scripts/perfomance_test_catalan.js",
     "ptest:isPrime": "node ./scripts/perfomance_test_isPrime.js",
     "ptest:estimatePiNumber": "node ./scripts/perfomance_test_estimatePiNumber.js",
     "ptest:createCollatzSequence": "node ./scripts/perfomance_test_createCollatzSequence.js",
