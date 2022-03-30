@@ -8,6 +8,16 @@ const createVector = size => {
   return result
 }
 
+const createRandomVector = size => {
+  const result = []
+
+  for (let i = size; i > 0; i--) {
+    result.push(i)
+  }
+
+  return result
+}
+
 const createMatrix = size => {
   const result = []
 
@@ -26,5 +36,6 @@ const createMatrix = size => {
 
 module.exports = {
   createVector,
+  createRandomVector,
   createMatrix,
 }

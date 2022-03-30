@@ -101,3 +101,30 @@ bool is_correct_matrix(v8::Local<v8::Array> v8_array) {
   return true;
 }
 
+
+/**
+ * Check if provided V8 array is correct vector or not.
+ *
+ * @param v8_array V8 array, provided for vector check.
+ * @return true if provided V8 array is correct vector, false if not.
+ */
+bool is_correct_vector(v8::Local<v8::Array> v8_array) {
+  unsigned int size = v8_array -> Length();
+
+  for (unsigned int i = 0; i < size; i ++) {
+    Nan::MaybeLocal<v8::Value> v8_maybe_value = Nan::Get(v8_array, i);
+
+    if (v8_maybe_value.IsEmpty()) {
+      return false;
+    }
+
+    v8::Local<v8::Value> v8_value = v8_maybe_value.ToLocalChecked();
+
+    if (!v8_value -> IsNumber()) {
+      return false;
+    }
+  }
+
+  return true;
+}
+

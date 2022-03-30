@@ -8,9 +8,11 @@
         "./src/nan_algorithm.cpp",
         "./src/nan_basic.cpp",
         "./src/nan_matrix.cpp",
+        "./src/nan_sorting.cpp",
         "./src/algorithm.cpp",
         "./src/basic.cpp",
         "./src/matrix.cpp",
+        "./src/sorting.cpp",
         "./src/convert.cpp"
       ],
       "include_dirs" : [

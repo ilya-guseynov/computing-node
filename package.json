@@ -13,7 +13,8 @@
     "ptest:estimatePiNumber": "node ./scripts/perfomance_test_estimatePiNumber.js",
     "ptest:createCollatzSequence": "node ./scripts/perfomance_test_createCollatzSequence.js",
     "ptest:matrixSum": "node ./scripts/perfomance_test_matrixSum.js",
-    "ptest:sumList": "node ./scripts/perfomance_test_sumList.js"
+    "ptest:sumList": "node ./scripts/perfomance_test_sumList.js",
+    "ptest:bubbleSort": "node ./scripts/perfomance_test_bubbleSort.js"
   },
   "devDependencies": {
     "jest": "^27.5.1",

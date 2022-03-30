@@ -2,9 +2,18 @@
 #include "nan_algorithm.hpp"
 #include "nan_basic.hpp"
 #include "nan_matrix.hpp"
+#include "nan_sorting.hpp"
 
 
 void init_basic(v8::Local<v8::Object> target) {
+  Nan::Set(
+    target,
+    Nan::New("bubbleSort").ToLocalChecked(),
+    Nan::GetFunction(
+      Nan::New<v8::FunctionTemplate>(nan_bubble_sort)
+    ).ToLocalChecked()
+  );
+
   Nan::Set(
     target,
     Nan::New("fibonacci").ToLocalChecked(),
