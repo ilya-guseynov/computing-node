@@ -8,18 +8,18 @@
     "build": "node-gyp build",
     "test": "jest",
 
-    "ptest:fibonacci": "node ./scripts/perfomance_test_fibonnaci.js",
-    "ptest:catalan": "node ./scripts/perfomance_test_catalan.js",
-    "ptest:eulerTotient": "node ./scripts/perfomance_test_eulerTotient.js",
-    "ptest:binomialCoeff": "node ./scripts/perfomance_test_binomialCoeff.js",
+    "ptest:fibonacci": "node ./scripts/ptest_fibonnaci.js",
+    "ptest:catalan": "node ./scripts/ptest_catalan.js",
+    "ptest:eulerTotient": "node ./scripts/ptest_eulerTotient.js",
+    "ptest:binomialCoeff": "node ./scripts/ptest_binomialCoeff.js",
     "ptest:newman_conway": "node ./scripts/ptest_newman_Conway.js",
-    "ptest:estimatePiNumber": "node ./scripts/perfomance_test_estimatePiNumber.js",
+    "ptest:estimatePiNumber": "node ./scripts/ptest_estimatePiNumber.js",
 
-    "ptest:isPrime": "node ./scripts/perfomance_test_isPrime.js",
-    "ptest:createCollatzSequence": "node ./scripts/perfomance_test_createCollatzSequence.js",
-    "ptest:matrixSum": "node ./scripts/perfomance_test_matrixSum.js",
-    "ptest:sumList": "node ./scripts/perfomance_test_sumList.js",
-    "ptest:bubbleSort": "node ./scripts/perfomance_test_bubbleSort.js"
+    "ptest:isPrime": "node ./scripts/ptest_isPrime.js",
+    "ptest:createCollatzSequence": "node ./scripts/ptest_createCollatzSequence.js",
+    "ptest:matrixSum": "node ./scripts/ptest_matrixSum.js",
+    "ptest:sumList": "node ./scripts/ptest_sumList.js",
+    "ptest:bubbleSort": "node ./scripts/ptest_bubbleSort.js"
   },
   "devDependencies": {
     "jest": "^27.5.1",
