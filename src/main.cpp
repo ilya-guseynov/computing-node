@@ -40,6 +40,14 @@ void init_basic(v8::Local<v8::Object> target) {
 
   Nan::Set(
     target,
+    Nan::New("binomialCoeff").ToLocalChecked(),
+    Nan::GetFunction(
+      Nan::New<v8::FunctionTemplate>(nan_binomial_coeff)
+    ).ToLocalChecked()
+  );
+
+  Nan::Set(
+    target,
     Nan::New("isPrime").ToLocalChecked(),
     Nan::GetFunction(
       Nan::New<v8::FunctionTemplate>(nan_is_prime)

@@ -130,6 +130,44 @@ void nan_euler_totient(const Nan::FunctionCallbackInfo<v8::Value>& args) {
 }
 
 
+void nan_binomial_coeff(const Nan::FunctionCallbackInfo<v8::Value>& args) {
+  v8::Isolate* isolate = args.GetIsolate();
+
+  if (args.Length() != 2) {
+    isolate -> ThrowException(v8::Exception::TypeError(
+      Nan::New("Must be provided 2 arguments").ToLocalChecked()
+    ));
+
+    return;
+  }
+
+  if (!args[0] -> IsNumber() || !args[1] -> IsNumber()) {
+    isolate -> ThrowException(v8::Exception::TypeError(
+      Nan::New("Provided arguments must be a numbers").ToLocalChecked()
+    ));
+
+    return;
+  }
+
+  v8::Local<v8::Number> v8_provided_number_1 = v8::Local<v8::Number>::Cast(args[0]);
+  double provided_number_1 = Nan::To<double>(v8_provided_number_1).FromJust();
+
+  v8::Local<v8::Number> v8_provided_number_2 = v8::Local<v8::Number>::Cast(args[1]);
+  double provided_number_2 = Nan::To<double>(v8_provided_number_2).FromJust();
+
+
+  if (provided_number_1 < 0 || provided_number_2 < 0) {
+    isolate -> ThrowException(v8::Exception::TypeError(
+      Nan::New("Provided numbers must be greater than 0").ToLocalChecked()
+    ));
+
+    return;
+  }
+
+  args.GetReturnValue().Set(binomial_coeff(provided_number_1, provided_number_2));
+}
+
+
 /**
  * Calculates if provided number is prime or not.
  *

@@ -59,6 +59,19 @@ double euler_totient(double n) {
 }
 
 
+double binomial_coeff(double n, double k) {
+  if (k > n) {
+    return 0;
+  }
+
+  if (k == 0 || k == n) {
+    return 1;
+  }
+
+  return binomial_coeff(n - 1, k - 1) + binomial_coeff(n - 1, k);
+}
+
+
 /**
  * Calculates if provided number is prime or not.
  *

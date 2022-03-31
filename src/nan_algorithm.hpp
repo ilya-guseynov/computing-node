@@ -38,6 +38,9 @@ void nan_catalan(const Nan::FunctionCallbackInfo<v8::Value>& args);
 void nan_euler_totient(const Nan::FunctionCallbackInfo<v8::Value>& args);
 
 
+void nan_binomial_coeff(const Nan::FunctionCallbackInfo<v8::Value>& args);
+
+
 /**
  * Calculates if provided number is prime or not.
  *

@@ -23,6 +23,9 @@ double catalan(double n);
 double euler_totient(double n);
 
 
+double binomial_coeff(double n, double k);
+
+
 /**
  * Calculates if provided number is prime or not.
  *
