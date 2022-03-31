@@ -26,6 +26,9 @@ double euler_totient(double n);
 double binomial_coeff(double n, double k);
 
 
+double newman_conway(double n);
+
+
 /**
  * Calculates if provided number is prime or not.
  *

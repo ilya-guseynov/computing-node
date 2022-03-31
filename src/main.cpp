@@ -48,6 +48,14 @@ void init_basic(v8::Local<v8::Object> target) {
 
   Nan::Set(
     target,
+    Nan::New("newmanConway").ToLocalChecked(),
+    Nan::GetFunction(
+      Nan::New<v8::FunctionTemplate>(nan_newman_conway)
+    ).ToLocalChecked()
+  );
+
+  Nan::Set(
+    target,
     Nan::New("isPrime").ToLocalChecked(),
     Nan::GetFunction(
       Nan::New<v8::FunctionTemplate>(nan_is_prime)

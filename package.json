@@ -12,8 +12,10 @@
     "ptest:catalan": "node ./scripts/perfomance_test_catalan.js",
     "ptest:eulerTotient": "node ./scripts/perfomance_test_eulerTotient.js",
     "ptest:binomialCoeff": "node ./scripts/perfomance_test_binomialCoeff.js",
-    "ptest:isPrime": "node ./scripts/perfomance_test_isPrime.js",
+    "ptest:newman_conway": "node ./scripts/ptest_newman_Conway.js",
     "ptest:estimatePiNumber": "node ./scripts/perfomance_test_estimatePiNumber.js",
+
+    "ptest:isPrime": "node ./scripts/perfomance_test_isPrime.js",
     "ptest:createCollatzSequence": "node ./scripts/perfomance_test_createCollatzSequence.js",
     "ptest:matrixSum": "node ./scripts/perfomance_test_matrixSum.js",
     "ptest:sumList": "node ./scripts/perfomance_test_sumList.js",
