@@ -37,6 +37,13 @@ double catalan(double n) {
 }
 
 
+/**
+ * Calculates gcd.
+ *
+ * @param a A number.
+ * @param b B number.
+ * @return Gcd.
+ */
 int _gcd(int a, int b) {
   if (a == 0) {
     return b;
@@ -46,6 +53,12 @@ int _gcd(int a, int b) {
 }
 
 
+/**
+ * Calculates Euler totient.
+ *
+ * @param n Number.
+ * @return Euler totient.
+ */
 double euler_totient(double n) {
   unsigned int result = 1;
 
@@ -59,6 +72,13 @@ double euler_totient(double n) {
 }
 
 
+/**
+ * Calculates binobial coefficent.
+ *
+ * @param n First number.
+ * @param k Second number.
+ * @return binobial coefficent.
+ */
 double binomial_coeff(double n, double k) {
   if (k > n) {
     return 0;
@@ -72,6 +92,12 @@ double binomial_coeff(double n, double k) {
 }
 
 
+/**
+ * Calculates nth Newman Conway sequence number.
+ *
+ * @param n Number.
+ * @return Newman Conway sequence number.
+ */
 double newman_conway(double n) {
   if (n == 1 || n == 2) {
     return 1;

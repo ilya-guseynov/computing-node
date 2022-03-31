@@ -1,6 +1,11 @@
 #include <vector>
 
-
+/**
+ * Bubble sort algorithm implementation.
+ *
+ * @param provided_vector Provided vector.
+ * @return Sorted vector.
+ */
 std::vector<double> bubble_sort(std::vector<double> provided_vector) {
   std::vector<double> new_vector = provided_vector;
 

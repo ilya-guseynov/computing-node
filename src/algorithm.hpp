@@ -20,12 +20,31 @@ double fibonacci(double n);
 double catalan(double n);
 
 
+/**
+ * Calculates Euler totient.
+ *
+ * @param n Number.
+ * @return Euler totient.
+ */
 double euler_totient(double n);
 
 
+/**
+ * Calculates binobial coefficent.
+ *
+ * @param n First number.
+ * @param k Second number.
+ * @return binobial coefficent.
+ */
 double binomial_coeff(double n, double k);
 
 
+/**
+ * Calculates nth Newman Conway sequence number.
+ *
+ * @param n Number.
+ * @return Newman Conway sequence number.
+ */
 double newman_conway(double n);
 
 

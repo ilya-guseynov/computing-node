@@ -3,7 +3,11 @@
 #include "convert.hpp"
 #include "sorting.hpp"
 
-
+/**
+ * Bubble sort algorithm implementation.
+ *
+ * @param args Standart Nan function arguments list.
+ */
 void nan_bubble_sort(const Nan::FunctionCallbackInfo<v8::Value>& args) {
   v8::Isolate* isolate = args.GetIsolate();
 
@@ -48,8 +52,6 @@ void nan_bubble_sort(const Nan::FunctionCallbackInfo<v8::Value>& args) {
       break;
     }
   }
-
-  // v8::Local<v8::Array> v8_result_vector = Nan::New<v8::Array>(size);
 
   for (unsigned int i = 0; i < size; i++) {
     Nan::Set(v8_vector, i, Nan::New(vector[i]));
